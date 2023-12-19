@@ -1,0 +1,1 @@
+This is a JavaScript project consisting of 7 different basic games. The goal of this project is to practice the fundamentals of JavaScript while programming games.
