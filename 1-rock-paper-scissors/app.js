@@ -12,9 +12,10 @@ console.log(possibleChoices);
 //Add event listener to possible choices buttons
 possibleChoices.forEach((possibleChoice) => {
   possibleChoice.addEventListener("click", (e) => {
-    userChoice = e.target.id;
-    userChoiceDisplay.innerHTML =
-      userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
+    userChoice = e.target.id.charAt(0).toUpperCase() + e.target.id.slice(1);
+    // userChoiceDisplay.innerHTML =
+    //   userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
+    userChoiceDisplay.innerHTML = userChoice;
     generateComputerChoice();
     getResult();
   });
@@ -46,4 +47,21 @@ function getResult() {
   if (computerChoice === "Rock" && userChoice === "Scissors") {
     result = "You win!";
   }
+  if (computerChoice === "Rock" && userChoice === "Paper") {
+    result = "You lose!";
+  }
+  if (computerChoice === "Paper" && userChoice === "Scissors") {
+    result = "You lose!";
+  }
+  if (computerChoice === "Paper" && userChoice === "Rock") {
+    result = "You win!";
+  }
+  if (computerChoice === "Scissor" && userChoice === "Paper") {
+    result = "You win!";
+  }
+  if (computerChoice === "Scissor" && userChoice === "Rock") {
+    result = "You lose!";
+  }
+
+  resultDisplay.innerHTML = result;
 }
