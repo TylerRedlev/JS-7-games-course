@@ -16,6 +16,7 @@ possibleChoices.forEach((possibleChoice) => {
     // userChoiceDisplay.innerHTML =
     //   userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
     userChoiceDisplay.innerHTML = userChoice;
+    //console.log(typeof userChoice + ` ${userChoice}`);
     generateComputerChoice();
     getResult();
   });
@@ -45,22 +46,22 @@ function getResult() {
     result = "It's a draw!";
   }
   if (computerChoice === "Rock" && userChoice === "Scissors") {
-    result = "You win!";
+    result = "You lose!";
   }
   if (computerChoice === "Rock" && userChoice === "Paper") {
-    result = "You lose!";
+    result = "You win!";
   }
   if (computerChoice === "Paper" && userChoice === "Scissors") {
-    result = "You lose!";
+    result = "You win!";
   }
   if (computerChoice === "Paper" && userChoice === "Rock") {
-    result = "You win!";
+    result = "You lose!";
   }
   if (computerChoice === "Scissor" && userChoice === "Paper") {
-    result = "You win!";
+    result = "You lose!";
   }
   if (computerChoice === "Scissor" && userChoice === "Rock") {
-    result = "You lose!";
+    result = "You win!";
   }
 
   resultDisplay.innerHTML = result;
