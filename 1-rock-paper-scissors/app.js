@@ -57,10 +57,10 @@ function getResult() {
   if (computerChoice === "Paper" && userChoice === "Rock") {
     result = "You lose!";
   }
-  if (computerChoice === "Scissor" && userChoice === "Paper") {
+  if (computerChoice === "Scissors" && userChoice === "Paper") {
     result = "You lose!";
   }
-  if (computerChoice === "Scissor" && userChoice === "Rock") {
+  if (computerChoice === "Scissors" && userChoice === "Rock") {
     result = "You win!";
   }
 
