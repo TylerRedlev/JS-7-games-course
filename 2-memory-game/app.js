@@ -1,5 +1,5 @@
 const gridDisplay = document.querySelector("#grid");
-
+const resultDisplay = document.querySelector("#result");
 //Declaring array of cards (6 different cards with images duplicated because we need 12 images)
 const cardArray = [
   { name: "cheeseburger", img: "images/cheeseburger.png" },
@@ -60,6 +60,8 @@ function checkMatch() {
 
   if (optionOneId == optionTwoId) {
     alert("You have clicked the same image!");
+    cards[optionOneId].setAttribute("src", "images/blank.png");
+    cards[optionTwoId].setAttribute("src", "images/blank.png");
   }
 
   if (cardsChosen[0] == cardsChosen[1]) {
@@ -68,8 +70,17 @@ function checkMatch() {
     cards[optionTwoId].setAttribute("src", "images/white.png");
     cards[optionOneId].removeEventListener("click", flipCard);
     cards[optionTwoId].removeEventListener("click", flipCard);
-    cardsWon.push(cardsChosen);
+  } else {
+    cards[optionOneId].setAttribute("src", "images/blank.png");
+    cards[optionTwoId].setAttribute("src", "images/blank.png");
+    alert("Sorry try again!");
   }
+  resultDisplay.textContent = cardsWon.length;
+
   cardsChosen = [];
   cardsChosenIds = [];
+
+  if (cardsWon.length == cardArray.length / 2) {
+    resultDisplay.textContent = "Congratulations you found them all!";
+  }
 }
