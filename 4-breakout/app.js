@@ -11,6 +11,7 @@ const userStart = [230, 10];
 let currentPosition = userStart;
 
 grid.style.width = boardWidth + "px";
+grid.style.height = boardHeight + "px";
 
 //create block class
 class Block {
