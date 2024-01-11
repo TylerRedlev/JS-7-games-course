@@ -2,16 +2,29 @@
 //DECLARING CONSTANTS AND VARIABLES
 //==============================
 
+//Add grid and block dimensions
 const grid = document.querySelector(".grid");
 const blockWidth = 100;
 const blockHeight = 20;
+
+//Board dimensions
 const boardWidth = 500;
 const boardHeight = 600;
+grid.style.width = boardWidth + "px";
+grid.style.height = boardHeight + "px";
+
+//User position
 const userStart = [230, 10];
 let currentPosition = userStart;
 
-grid.style.width = boardWidth + "px";
-grid.style.height = boardHeight + "px";
+//Add ball
+const ball = document.createElement("div");
+ball.classList.add("ball");
+grid.appendChild(ball);
+const ballStart = [130, 100];
+let ballCurrentPosition = ballStart;
+ball.style.left = ballCurrentPosition[0];
+ball.style.top = ballCurrentPosition[1];
 
 //create block class
 class Block {
@@ -75,7 +88,7 @@ function moveUser(e) {
       break;
     case "ArrowRight":
       if (currentPosition[0] < boardWidth - blockWidth) {
-        currentPosition[0] -= 10;
+        currentPosition[0] += 10;
         drawUser();
       }
       break;
