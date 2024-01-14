@@ -19,6 +19,17 @@ const gridWidth = 9;
 
 //Assigning events
 document.addEventListener("keyup", moveFrog);
+startPauseButton.addEventListener("click", () => {
+  if (timerId) {
+    clearInterval(timerId);
+    timerId = null;
+    clearInterval(checkOutComes);
+    document.removeEventListener("keyup", moveFrog);
+  } else {
+    timerId;
+    setInterval(checkOutComes, 50);
+  }
+});
 
 //==================================================================================================
 //START THE PROGRAM
@@ -76,6 +87,7 @@ function autoMoveElements() {
   carsLeft.forEach((carLeft) => moveCarRight(carLeft));
   carsRight.forEach((carRight) => moveCarRight(carRight));
   lose();
+  win();
 }
 
 function moveLogLeft(logLeft) {
@@ -182,7 +194,21 @@ function lose() {
   ) {
     resultDisplay.textContent = "You lose!";
     clearInterval(timerId);
+    clearInterval(checkOutComes);
     squares[currentIndex].classList.remove("frog");
     document.removeEventListener("keyup", moveFrog);
   }
+}
+
+function win() {
+  if (squares[currentIndex].classList.contains("ending-block")) {
+    resultDisplay.textContent = "You win!";
+    clearInterval(timerId);
+    document.removeEventListener("keyup", moveFrog);
+  }
+}
+
+function checkOutComes() {
+  lose();
+  win();
 }
