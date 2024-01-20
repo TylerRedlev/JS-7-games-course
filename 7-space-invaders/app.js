@@ -24,6 +24,7 @@ squares[currentShooterIndex].classList.add("shooter");
 //Add event listeners
 document.addEventListener("keydown", moveShooter);
 document.addEventListener("keydown", shoot);
+
 //==================================================================================================
 //START THE PROGRAM
 //===================================================================================================
